@@ -27,7 +27,7 @@
         }
 
         public function get_posts_by_category($category_id) {
-            $this->db->select('posts.*, category.name as category_name'); // Select required columns
+            $this->db->select('posts.*, category.name as category_name'); 
             $this->db->from('posts');
             $this->db->join('category', 'category.id = posts.category_id');
             $this->db->where('posts.category_id', $category_id);

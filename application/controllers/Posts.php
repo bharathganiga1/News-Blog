@@ -15,6 +15,8 @@
         {
             $data['post'] = $this->Post_model->get_posts($slug);
             //print_r($data['post']);
+            $post_id = $data['post']['id'];
+            $data['comments'] = $this->Comment_Model->get_comments($post_id);
             if(empty($data['post']))
             {
                 show_404();

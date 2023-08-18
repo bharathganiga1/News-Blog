@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-9">
                 <h3><?php echo $post['title']; ?></h3>
-                <small class="post-date">Posted on: <?php echo date('F j, Y', strtotime($post['created_at'])); ?> in <strong><?php echo $post['category_name']; ?></strong></small>
+                <small class="post-date">Posted on: <?php echo date('F j, Y', strtotime($post['created_at'])); ?> in <strong><?php echo $title; ?></strong></small>
                 <p><?php echo word_limiter($post['body'], 50); ?></p>
                 <br>
                 <p><a class="btn btn-default" href="<?php echo site_url('posts/' . $post['slug']); ?>">Read More</a></p>
@@ -21,5 +21,7 @@
         </div>
     </div>
 <?php endforeach; ?>
+
+
 
 
