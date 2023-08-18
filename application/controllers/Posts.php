@@ -47,8 +47,8 @@
                 $config['upload_path'] = './images/post-images';
                 $config['allowed_types'] = 'png|gif|jpg';
                 $config['max_size'] = '2048';
-                $config['max_width'] = '1000';
-                $config['max_height'] = '1000';
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
 
                 $this->load->library('upload',$config);
                 //checking if image uploaded or Not
@@ -61,6 +61,7 @@
                 }
 
                 $this->Post_model->create_post($post_image);
+                $this->session->set_flashdata('Post_created','Your Post has been created');
                 redirect('posts');
             }
             
@@ -69,6 +70,7 @@
         public function delete($id)
         {
             $this->Post_model->delete_post($id);
+            $this->session->set_flashdata('Post_deleted','Your Post has been deleted');
             redirect('posts');
         }
 
@@ -91,6 +93,7 @@
         public function update()
         {
             $this->Post_model->update_post();
+            $this->session->set_flashdata('Post_updated','Your Post has been updated');
             redirect('/posts');
         }
     }

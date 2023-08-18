@@ -28,6 +28,9 @@
                         <li>
                             <a href="<?php echo base_url(); ?>categories/create">NEW CATEGORY</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>users/register">REGISTER</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -35,6 +38,21 @@
         </nav>
 
         <div class="container">
-
+        <!-- flass container -->
+        <?php if($this->session->flashdata('user_registered')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('Post_created')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('Post_created').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('Post_deleted')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('Post_deleted').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('Post_updated')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('Post_updated').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('category_created')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>';?>
+        <?php endif;?>
         
 

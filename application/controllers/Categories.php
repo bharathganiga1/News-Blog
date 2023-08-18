@@ -23,6 +23,7 @@
                 $this->load->view('footer');
             }else{
                 $this->Category_Model->create_category();
+                $this->session->set_flashdata('category_created','new Category has been created');
                 redirect('categories');
             }
         }
