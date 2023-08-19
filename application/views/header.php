@@ -22,6 +22,16 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                    <?php if(!$this->session->userdata('logged_in')): ?>
+                        <li>
+                            <a href="<?php echo base_url(); ?>users/login">LOGIN</a>
+                        </li>  
+                        <li>
+                            <a href="<?php echo base_url(); ?>users/register">REGISTER</a>
+                        </li>  
+                    <?php endif; ?>
+
+                    <?php if($this->session->userdata('logged_in')): ?>
                         <li>
                             <a href="<?php echo base_url(); ?>posts/create">NEW POST</a>
                         </li>
@@ -29,8 +39,9 @@
                             <a href="<?php echo base_url(); ?>categories/create">NEW CATEGORY</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>users/register">REGISTER</a>
-                        </li>
+                           <a href="<?php echo base_url(); ?>users/logout">LOGOUT</a>
+                       </li>
+                    <?php endif; ?>
 
                     </ul>
                 </div>
@@ -53,6 +64,15 @@
         <?php endif;?>
         <?php if($this->session->flashdata('category_created')):?>
             <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('user_loggedin')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('loggin_failed')):?>
+            <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('loggin_failed').'</p>';?>
+        <?php endif;?>
+        <?php if($this->session->flashdata('user_logout')):?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_logout').'</p>';?>
         <?php endif;?>
         
 
